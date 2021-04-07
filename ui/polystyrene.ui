@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>802</width>
+    <height>586</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Раскладка ППТ</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>assets/logo.png</normaloff>assets/logo.png</iconset>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>791</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Рассчет объема пакетов полистирола</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>361</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Параметры </string>
+     </property>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>160</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Добавить</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>110</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>ППТ-15-А-Р</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Эффективный утеплитель λ ≤ 0,034 Вт/(м·°C)</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Толщина ППТ</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>90</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Тип</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>10</y>
+       <width>391</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Добавленные элементы</string>
+     </property>
+     <widget class="QTreeWidget" name="treeWidget">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>351</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Толщина</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Тип</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>160</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Удалить</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>220</y>
+       <width>301</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Выбрать пакеты</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>260</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Выбранные элементы</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>480</y>
+       <width>131</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Удалить</string>
+     </property>
+    </widget>
+    <widget class="QTreeWidget" name="treeWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>281</y>
+       <width>761</width>
+       <height>191</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>Поз.</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Обозначение</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Наименование</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Кол., шт.</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Объем, м3</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Примечания</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>480</y>
+       <width>131</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Экспорт в эксель</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>230</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Масштаб</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>220</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>220</y>
+       <width>301</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Завершить выбор</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>520</y>
+       <width>271</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Нарисовать таблицу</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Empty</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Empty</string>
+    </attribute>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
