@@ -2,7 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
 # C extensions
 *.so
 
@@ -141,3 +140,9 @@ dmypy.json
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/vscode
+
+
+# Created by https://www.toptal.com/developers/gitignore/api/pycharm
+# Edit at https://www.toptal.com/developers/gitignore?templates=pycharm
+
+.idea
