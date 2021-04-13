@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>802</width>
-    <height>586</height>
+    <width>805</width>
+    <height>592</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -203,46 +203,6 @@
       <string>Удалить</string>
      </property>
     </widget>
-    <widget class="QTreeWidget" name="treeWidget_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>281</y>
-       <width>761</width>
-       <height>191</height>
-      </rect>
-     </property>
-     <column>
-      <property name="text">
-       <string>Поз.</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Обозначение</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Наименование</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Кол., шт.</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Объем, м3</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Примечания</string>
-      </property>
-     </column>
-    </widget>
     <widget class="QPushButton" name="pushButton_5">
      <property name="geometry">
       <rect>
@@ -305,11 +265,81 @@
       <string>Нарисовать таблицу</string>
      </property>
     </widget>
+    <widget class="QTableWidget" name="tableWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>280</y>
+       <width>761</width>
+       <height>192</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>Поз.</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Обозначение</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Наименование</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Кол., шт.</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Объем, м3</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Примечания</string>
+      </property>
+     </column>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>Empty</string>
     </attribute>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>160</y>
+       <width>481</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <row>
+      <property name="text">
+       <string>22</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>1.25</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </column>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
