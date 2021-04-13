@@ -2,17 +2,21 @@ from PyQt6 import QtWidgets
 
 
 class AcadSelectedElements:
-    def __init__(self, table, delete_btn, export_btn):
+    def __init__(self, table, table_data):
         self.table = table
-        self.delete_btn = delete_btn
-        self.export_btn = export_btn
-        self.table_data = []
+        self.table_data = table_data
+        self.row_count = 0
 
-    def add_element(self, data):
-        table_item = QtWidgets.QTreeWidgetItem(self.table)
-        for index in range(len(data)):
-            table_item.setText(index, data[index])
-        self.table_data.append(data)
+    def insert_row(self):
+        self.table.insertRow(self.row_count)
+        self.row_count += 1
+
+    def add_element(self, data, position):
+        item = QtWidgets.QTableWidgetItem(str(data))
+        self.table.setItem(position[0], position[1], item)
+
+    def add_data(self):
+        pass
 
     def export_table(self):
         pass
