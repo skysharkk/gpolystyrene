@@ -1,9 +1,6 @@
+class SelectElements:
+    def __init__(self, btn):
+        self.btn = btn
 
-
-class SelectedElements:
-    def __init__(self, window, acad):
-        self.btn = window.pushButton_3
-        self.btn.clicked.connect(self.select_elements)
-
-    def select_elements(self):
-        acad = Autocad(create_if_not_exists=True)
+    def connect_action(self, func):
+        self.btn.clicked.connect(func)
