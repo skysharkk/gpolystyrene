@@ -29,10 +29,17 @@ class AddedElements:
     def get_table_data(self):
         return self.el_list
 
+    def get_selected_item(self):
+        item = self.el_ui_table.currentItem()
+        index = self.el_ui_table.indexOfTopLevelItem(item)
+        return [item, index]
+
+    def get_selected_item_value(self):
+        return self.el_list[self.get_selected_item()[1]]
+
     def delete_element(self):
         if len(self.el_list) > 0:
-            item = self.el_ui_table.currentItem()
-            index = self.el_ui_table.indexOfTopLevelItem(item)
-            self.el_list.pop(index)
+            item = self.get_selected_item()
+            self.el_list.pop(item[1])
             self.el_ui_table.takeTopLevelItem(
-                self.el_ui_table.indexOfTopLevelItem(item))
+                self.el_ui_table.indexOfTopLevelItem(item[0]))
