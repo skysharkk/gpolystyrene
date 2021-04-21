@@ -3,4 +3,4 @@ class Scale:
         self.input_field = input_field
 
     def get_value(self):
-        return self.input_field.displayText()
+        return int(self.input_field.displayText())
