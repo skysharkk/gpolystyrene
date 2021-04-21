@@ -38,7 +38,7 @@ class AcadUtils:
 
     @staticmethod
     def get_param_of_selected_el(selected_elements):
-        Data = namedtuple("Data", ["coord", "area", "amount"])
+        Data = namedtuple("Data", ["coord", "area"])
         result = []
         for index in range(selected_elements.Count):
             el = selected_elements.Item(index)
