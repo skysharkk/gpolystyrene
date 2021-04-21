@@ -1,5 +1,6 @@
 from collections import namedtuple
 import math
+import ctypes
 
 
 def round_half_up(n, decimals=0, int_result=True):
@@ -29,9 +30,17 @@ def get_corner_coordinates(coordinates_tuple):
 
 def get_rectangle_sizes(coordinates_tuple, scale):
     coordinates = get_corner_coordinates(coordinates_tuple)
-    Sizes = namedtuple("Sizes", ["width", "height"])
     width = abs(round_half_up(
         (coordinates.max_x - coordinates.min_x) * scale))
     height = abs(round_half_up(
         (coordinates.max_y - coordinates.min_y) * scale))
-    return Sizes(width, height)
+    return [width, height]
+
+
+def compare_list_or_tuple(first_list, second_list):
+    return set(first_list) == set(second_list)
+
+
+def show_error_window(error_message, window_name=u"Ошибка"):
+    ctypes.windll.user32.MessageBoxW(
+        0, error_message, window_name, 0)
