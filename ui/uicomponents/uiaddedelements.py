@@ -1,5 +1,7 @@
 from PyQt6 import QtWidgets
 
+from utils.myutils import show_error_window
+
 
 class AddedElements:
     def __init__(self, el_ui_table, delete_btn):
@@ -32,10 +34,13 @@ class AddedElements:
     def get_selected_item(self):
         item = self.el_ui_table.currentItem()
         index = self.el_ui_table.indexOfTopLevelItem(item)
-        return [item, index]
+        return item, index
 
     def get_selected_item_value(self):
-        return self.el_list[self.get_selected_item()[1]]
+        item, item_index = self.get_selected_item()
+        if item:
+            return self.el_list[item_index]
+        return None
 
     def delete_element(self):
         if len(self.el_list) > 0:
