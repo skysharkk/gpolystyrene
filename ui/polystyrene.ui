@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>805</width>
-    <height>592</height>
+    <width>795</width>
+    <height>593</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -169,7 +169,7 @@
       <rect>
        <x>160</x>
        <y>220</y>
-       <width>301</width>
+       <width>611</width>
        <height>31</height>
       </rect>
      </property>
@@ -239,19 +239,6 @@
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_6">
-     <property name="geometry">
-      <rect>
-       <x>470</x>
-       <y>220</y>
-       <width>301</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Завершить выбор</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_7">
      <property name="geometry">
       <rect>
@@ -262,7 +249,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Нарисовать таблицу</string>
+      <string>Экспорт в AutoCAD</string>
      </property>
     </widget>
     <widget class="QTableWidget" name="tableWidget_2">
@@ -274,6 +261,15 @@
        <height>192</height>
       </rect>
      </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>50</number>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
      <column>
       <property name="text">
        <string>Поз.</string>
@@ -304,6 +300,58 @@
        <string>Примечания</string>
       </property>
      </column>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>480</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Отходы</string>
+     </property>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>141</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Рассчитать и вывести</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>20</y>
+        <width>151</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Отрисовать в Autocad</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="pushButton_9">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>500</y>
+       <width>151</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Добавить позиции</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">

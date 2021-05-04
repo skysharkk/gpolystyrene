@@ -48,7 +48,7 @@ class AcadUtils:
     def get_point(self, message_text="Выберете точку"):
         self.change_focus_window()
         base_point = array("d", [0, 0, 0])
-        return self.doc.Utility.GetPoint(base_point, message_text)
+        return array('d', self.doc.Utility.GetPoint(base_point, message_text))
 
     def draw_polyline(self, points, width=0.0):
         amount_of_coordinates = 3
@@ -66,11 +66,8 @@ class AcadUtils:
         return [array("d", list(*min_point)), array("d", list(*max_point))]
 
     @staticmethod
-    def get_mtext_line_height(mode_space, width, text_height, text):
-        text = mode_space.AddMText(array("d", array("d", [0, 0, 0])), width, text)
-        text.Height = text_height
-        bounding_box_coordinates = AcadUtils.get_bounding_box(text)
-        text.Delete()
+    def get_mtext_line_height(text_obj):
+        bounding_box_coordinates = AcadUtils.get_bounding_box(text_obj)
         return abs(bounding_box_coordinates[1][1] - bounding_box_coordinates[0][1])
 
     def draw_text(self, insertion_point, width, height, alignment, text):
@@ -85,7 +82,10 @@ class AcadUtils:
             "BottomCenter": 8,
             "BottomRight": 9,
         }
-        text = self.doc.ModelSpace.AddMText(insertion_point, width, text)
-        text.Height = height
-        text.AttachmentPoint = alignment_dict[alignment]
-        mtext_height = AcadUtils.get_mtext_line_height(self.doc.ModelSpace, width, height, text)
+        text_obj = self.doc.ModelSpace.AddMText(insertion_point, width, text)
+        text_obj.Height = height
+        text_obj.AttachmentPoint = alignment_dict[alignment]
+        mtext_height = AcadUtils.get_mtext_line_height(text_obj)
+        new_x = insertion_point[0] - (width / 2)
+        new_y = insertion_point[1] + (mtext_height / 2)
+        text_obj.Move(insertion_point, array("d", [new_x, new_y, 0]))
