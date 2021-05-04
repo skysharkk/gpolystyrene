@@ -41,6 +41,13 @@ def compare_list_or_tuple(first_list, second_list):
     return set(first_list) == set(second_list)
 
 
+def is_elem_exist_in_collection(elem, collection):
+    for item in collection:
+        if compare_list_or_tuple(item.coord, elem):
+            return True
+    return False
+
+
 def show_error_window(error_message, window_name=u"Ошибка"):
     ctypes.windll.user32.MessageBoxW(
         0, error_message, window_name, 0)
