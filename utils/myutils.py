@@ -1,6 +1,7 @@
 from collections import namedtuple
 import math
 import ctypes
+from array import array
 
 
 def round_half_up(n, decimals=0, int_result=True):
@@ -51,3 +52,14 @@ def is_elem_exist_in_collection(elem, collection):
 def show_error_window(error_message, window_name=u"Ошибка"):
     ctypes.windll.user32.MessageBoxW(
         0, error_message, window_name, 0)
+
+
+def create_array_of_double(converted_list):
+    return array("d", converted_list)
+
+
+def two_dimension_list_to_list(converted_list):
+    formatted_list = []
+    for item in converted_list:
+        formatted_list.extend(item)
+    return formatted_list
