@@ -4,6 +4,9 @@ from comtypes.automation import VARIANT
 from ctypes import byref
 from array import array
 from collections import namedtuple
+from copy import copy
+
+from utils.myutils import create_array_of_double, two_dimension_list_to_list
 
 logger = logging.getLogger(__name__)
 
@@ -89,3 +92,25 @@ class AcadUtils:
         new_x = insertion_point[0] - (width / 2)
         new_y = insertion_point[1] + (mtext_height / 2)
         text_obj.Move(insertion_point, array("d", [new_x, new_y, 0]))
+
+    @staticmethod
+    def create_point(coordinates, size, coordinate_position):
+        copy_coordinates = copy(coordinates)
+        copy_coordinates[coordinate_position] += size
+        return copy_coordinates
+
+    def draw_rectangle(self, initial_point, width, height):
+        ms = self.doc.ModelSpace
+        points = [list(initial_point)]
+        sizes = [width, -height, -width, height]
+        amount_iterates = 4
+        for i in range(amount_iterates):
+            if i % 2 == 0:
+                new_point = AcadUtils.create_point(points[i], sizes[i], 0)
+                points.append(new_point)
+            else:
+                new_point = AcadUtils.create_point(points[i], sizes[i], 1)
+                points.append(new_point)
+        points = create_array_of_double(two_dimension_list_to_list(points))
+        ms.AddPolyline(points)
+        return points
