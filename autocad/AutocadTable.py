@@ -69,6 +69,8 @@ class AcadTable:
         self.__change_table_sizes()
         for col_index in range(len(self.column_width)):
             for row_index in range(len(self.row_height)):
+                self.__table.VertCellMargin = 0
+                self.__table.HorzCellMargin = 0
                 self.__table.SetTextHeight2(row_index, col_index, 1, text_height)
                 if row_index == 0:
                     self.set_vert_and_horz_line_weight(
