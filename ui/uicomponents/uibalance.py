@@ -1,9 +1,7 @@
 from collections import namedtuple
 from array import array
-
 from autocad.acad import AcadUtils
 from utils import greedypacker
-from pprint import pprint
 from pyautocad import Autocad
 
 
@@ -16,7 +14,8 @@ class Balance:
         self.data = data
         self.__converted_data = {}
         self.__container_sizes = (2000, 1000)
-        self.__possible_types = ["ППТ-15-А-Р", "Эффективный утеплитель λ ≤ 0,034 Вт/(м·°C)"]
+        self.__possible_types = ["ППТ-15-А-Р",
+                                 "Эффективный утеплитель λ ≤ 0,034 Вт/(м·°C)"]
         self.__packed_items = {}
 
     def __convert__data(self):
@@ -30,8 +29,8 @@ class Balance:
                 self.__converted_data[poly_type] = {}
             if self.__converted_data[poly_type].get(thickness) is None:
                 self.__converted_data[poly_type][thickness] = []
-            self.__converted_data[poly_type][thickness].append(Item(sizes, count))
-        pprint(self.__converted_data)
+            self.__converted_data[poly_type][thickness].append(
+                Item(sizes, count))
 
     @staticmethod
     def create_packer_item(sizes):
@@ -43,8 +42,9 @@ class Balance:
         bin_manager = greedypacker.BinManager(
             width,
             height,
-            pack_algo='maximal_rectangle',
-            heuristic='bottom_left',
+            pack_algo='shelf',
+            heuristic='best_area_fit',
+            wastemap=True,
             rotation=True
         )
         for item in items:
@@ -64,7 +64,6 @@ class Balance:
                 self.__packed_items[poly_type][thickness] = self.__packing_items(
                     self.__converted_data[poly_type][thickness]
                 )
-        pprint(self.__packed_items)
 
     def draw_packs(self, drawing_func, add_name_func):
         initial_x = 0
@@ -74,14 +73,33 @@ class Balance:
             thickness_list = self.__packed_items[poly_type].keys()
             for thickness in thickness_list:
                 for greedy_bin in self.__packed_items[poly_type][thickness]:
-                    add_name_func(array("d", [initial_x, initial_y, 0]), 0, 120, "MiddleCenter", poly_type)
+                    add_name_func(
+                        array("d", [initial_x, initial_y, 0]), 0, 120, "MiddleCenter", poly_type)
                     initial_y -= 240
-                    add_name_func(array("d", [initial_x, initial_y, 0]), 0, 120, "MiddleCenter", str(thickness))
+                    add_name_func(
+                        array("d", [initial_x, initial_y, 0]), 0, 120, "MiddleCenter", str(thickness))
                     initial_y -= 240
-                    drawing_func(array("d", [initial_x, initial_y, 0]), *self.__container_sizes)
+                    drawing_func(
+                        array("d", [initial_x, initial_y, 0]), *self.__container_sizes)
                     for item in greedy_bin.items:
-                        drawing_func(array("d", [initial_x + item.x, initial_y + item.y, 0]), item.width, item.height)
+                        drawing_func(
+                            array("d", [initial_x + item.x, initial_y - item.y, 0]), item.width, item.height)
                     initial_y -= (240 + self.__container_sizes[1])
 
 
-    def
+acad = Autocad(create_if_not_exists=True)
+acad_utils = AcadUtils(acad)
+
+
+bal = Balance(
+    [
+        [[300, 400, 180], "ППТ-15-А-Р", 2],
+        [[800, 900, 160], "ППТ-15-А-Р", 4],
+        [[360, 500, 180], "ППТ-15-А-Р", 2],
+        [[500, 600, 180], "ППТ-15-А-Р", 5],
+        [[500, 600, 140], "Эффективный утеплитель λ ≤ 0,034 Вт/(м·°C)", 1],
+    ]
+)
+
+bal.create_pack()
+bal.draw_packs(acad_utils.draw_rectangle, acad_utils.draw_text)

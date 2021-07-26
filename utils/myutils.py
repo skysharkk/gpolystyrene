@@ -14,6 +14,7 @@ def round_half_up(n, decimals=0, int_result=True):
 
 
 def get_corner_coordinates(coordinates_tuple):
+    print(coordinates_tuple)
     Points = namedtuple("Points", ["min_x", "max_x", "min_y", "max_y"])
     x_coordinates_list = []
     y_coordinates_list = []
